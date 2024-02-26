@@ -119,14 +119,14 @@ app.get("/", (req, res)=> {
 app.post('/food', (req, res)=>{
     const sql = "INSERT INTO food (`productName`,`price`,`description`,`productType`, `productImage`) VALUES (?)";
     console.log(req.body)
-    const vlaues = [
+    const values = [
         req.body.name,
         req.body.price,
         req.body.description,
         req.body.type,
         req.body.image
     ]
-    db.query(sql, [vlaues], (err, result) => {
+    db.query(sql, [values], (err, result) => {
         if(err) return res.json(err);
         return res.json(result);
     })
